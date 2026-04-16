@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alient — Marketing Landing Page
 
-## Getting Started
+A Next.js marketing site for [Alient](https://alient.ai) — the AI software engineer.
 
-First, run the development server:
+## Stack
+
+- **Next.js 14+** (App Router, TypeScript)
+- **Tailwind CSS** — dark premium theme
+- **PostgreSQL** — contact form submissions stored via `pg`
+
+## Prerequisites
+
+- Node.js 18+
+- npm
+- PostgreSQL instance (local or hosted)
+
+## Setup
+
+### 1. Clone and install
+
+```bash
+git clone <repo-url>
+cd landing-page
+npm install
+```
+
+### 2. Configure environment variables
+
+```bash
+cp .env.local.example .env.local
+```
+
+Edit `.env.local` and set your PostgreSQL connection string:
+
+```
+DATABASE_URL=postgres://username:password@localhost:5432/alient
+```
+
+### 3. Initialize the database
+
+Run the schema file against your PostgreSQL instance:
+
+```bash
+psql $DATABASE_URL -f schema.sql
+```
+
+Or using `psql` directly:
+
+```bash
+psql postgres://username:password@localhost:5432/alient -f schema.sql
+```
+
+This creates the `contact_submissions` table:
+
+```sql
+CREATE TABLE IF NOT EXISTS contact_submissions (
+  id         SERIAL PRIMARY KEY,
+  name       TEXT NOT NULL,
+  email      TEXT NOT NULL,
+  phone      TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+```
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### `POST /api/contact`
 
-## Learn More
+Stores a demo request.
 
-To learn more about Next.js, take a look at the following resources:
+**Request body:**
+```json
+{
+  "name": "Alex Chen",
+  "email": "alex@company.com",
+  "phone": "+1 (555) 000-0000"
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Response:**
+```json
+{ "success": true }
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Error (400):**
+```json
+{ "error": "All fields are required." }
+```
 
-## Deploy on Vercel
+## Build for production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Environment Variables
+
+| Variable       | Description                              | Required |
+|----------------|------------------------------------------|----------|
+| `DATABASE_URL` | PostgreSQL connection string             | Yes      |
