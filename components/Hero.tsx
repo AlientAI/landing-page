@@ -1,161 +1,198 @@
-'use client';
+import Link from 'next/link';
+import { ArrowRight, PlayIcon } from './icons';
+
+const terminalLines: { content: React.ReactNode; delay: number }[] = [
+  {
+    delay: 0.2,
+    content: (
+      <>
+        <span className="muted">$</span> <span className="prompt">alient plan</span>{' '}
+        <span className="file">JIRA-4812</span>
+      </>
+    ),
+  },
+  { delay: 0.9, content: <span className="muted">→ reading repo… /src/checkout/totals.ts</span> },
+  {
+    delay: 1.6,
+    content: (
+      <>
+        <span className="muted">→ planner:</span> 3 steps · 12 files
+      </>
+    ),
+  },
+  {
+    delay: 2.3,
+    content: (
+      <>
+        <span className="muted">→ coding…</span> <span className="file">totals.ts</span>{' '}
+        <span className="ok">+42 −18</span>
+      </>
+    ),
+  },
+  {
+    delay: 3.0,
+    content: (
+      <>
+        <span className="muted">→ tests</span> <span className="ok">✓ 214 passed</span>{' '}
+        <span className="muted">·</span> <span className="warn">2 flaky</span>
+      </>
+    ),
+  },
+  {
+    delay: 3.7,
+    content: (
+      <>
+        <span className="muted">→ reflector:</span> <span className="ok">ok</span> · adversarial verify{' '}
+        <span className="ok">ok</span>
+      </>
+    ),
+  },
+  {
+    delay: 4.4,
+    content: (
+      <>
+        <span className="muted">$</span> <span className="prompt">gh pr create</span>
+      </>
+    ),
+  },
+  {
+    delay: 5.1,
+    content: (
+      <>
+        <span className="ok">opened</span> <span className="file">#1284</span>{' '}
+        <span className="muted">fix: prorate taxes on split ship</span>
+        <span className="cursor" />
+      </>
+    ),
+  },
+];
+
+const sidebarMemoryRows = ['procedural', 'episodic', 'semantic', 'working', 'declarative'];
 
 export default function Hero() {
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-grid">
-      {/* Background orb */}
-      <div
-        className="hero-orb"
-        style={{ top: '50%', left: '50%', transform: 'translate(-50%, -60%)' }}
-      />
-
-      {/* Nav */}
-      <nav className="absolute top-0 left-0 right-0 flex items-center justify-between px-8 py-6 z-10">
-        <div className="flex items-center gap-2">
-          <span
-            className="text-xl font-bold tracking-tight"
-            style={{ color: 'var(--text-primary)' }}
-          >
-            Alient
+    <section className="hero" id="product">
+      <div className="container hero-grid">
+        <div className="hero-left">
+          <span className="eyebrow">
+            From the team behind Amazon&apos;s foundational AI
+            <br />
+            30 yrs in enterprise
           </span>
-          <span
-            className="text-xs font-medium px-2 py-0.5 rounded-full"
-            style={{
-              background: 'var(--accent-glow)',
-              color: 'var(--accent-bright)',
-              border: '1px solid var(--border-accent)',
-            }}
-          >
-            AI
-          </span>
-        </div>
-        <button
-          onClick={scrollToContact}
-          className="text-sm font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
-          style={{
-            color: 'var(--text-secondary)',
-            border: '1px solid var(--border)',
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-primary)';
-            (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--border-accent)';
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-secondary)';
-            (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--border)';
-          }}
-        >
-          Request a Demo
-        </button>
-      </nav>
+          <h1 className="display hero-headline">
+            Hire the AI Teammate,
+            <br />
+            not the tool
+          </h1>
+          <p className="sub">
+            Today&apos;s AI tools automate 20% of the job &mdash; the code. A human still attends every
+            meeting, reads every doc, and re-explains context every morning.{' '}
+            <strong style={{ color: 'var(--text)', fontWeight: 500 }}>Alient is the other 80%.</strong>{' '}
+            Its own Slack, its own email, a real seat in the meeting, and memory that compounds from
+            day one.
+          </p>
+          <div className="hero-ctas">
+            <Link className="btn btn--primary" href="#demo">
+              Request a demo
+              <ArrowRight />
+            </Link>
+            <Link className="btn btn--ghost" href="#live-demo">
+              See it work
+              <PlayIcon />
+            </Link>
+          </div>
 
-      {/* Hero content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 mb-8">
-          <div
-            className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm"
-            style={{
-              background: 'var(--accent-glow)',
-              border: '1px solid var(--border-accent)',
-              color: 'var(--accent-bright)',
-            }}
-          >
-            <span
-              className="w-1.5 h-1.5 rounded-full animate-pulse"
-              style={{ background: 'var(--accent-bright)' }}
-            />
-            Now hiring AI engineers
+          <div className="proof-bar">
+            <div className="proof-cell">
+              <div className="num accent">
+                72.1<span style={{ fontSize: 14, letterSpacing: 0 }}>%</span>
+              </div>
+              <div className="lbl">#1 on OSWorld Benchmark</div>
+            </div>
+            <div className="proof-cell">
+              <div className="num">+9.2 pts</div>
+              <div className="lbl">vs. previous SOTA (Sonnet 4.5)</div>
+            </div>
+            <div className="proof-cell">
+              <div className="num">Beats</div>
+              <div className="lbl">Claude Code · Terminal Benchmark</div>
+            </div>
+            <div className="proof-cell">
+              <div className="num">On-device</div>
+              <div className="lbl">Zero data egress</div>
+            </div>
           </div>
         </div>
 
-        {/* Headline */}
-        <h1
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-6"
-          style={{ color: 'var(--text-primary)' }}
-        >
-          Your competitors aren&apos;t hiring
-          <br />
-          more engineers.
-          <br />
-          <span className="gradient-text">They&apos;re getting more output.</span>
-        </h1>
-
-        {/* Subheadline */}
-        <p
-          className="text-xl sm:text-2xl max-w-2xl mx-auto mb-4 leading-relaxed"
-          style={{ color: 'var(--text-secondary)' }}
-        >
-          Alient is an AI software engineer with its own identity, memory, and judgment.
-        </p>
-        <p
-          className="text-lg max-w-xl mx-auto mb-12"
-          style={{ color: 'var(--text-muted)' }}
-        >
-          Give it a laptop. It joins your team Monday.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onClick={scrollToContact}
-            className="px-8 py-4 rounded-xl text-base font-semibold transition-all duration-200 cursor-pointer"
-            style={{
-              background: 'var(--accent)',
-              color: '#fff',
-              boxShadow: '0 0 40px rgba(99, 102, 241, 0.3)',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 60px rgba(99, 102, 241, 0.5)';
-              (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-1px)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 40px rgba(99, 102, 241, 0.3)';
-              (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0)';
-            }}
-          >
-            Request a Demo
-          </button>
-          <button
-            onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 rounded-xl text-base font-medium transition-all duration-200 cursor-pointer"
-            style={{
-              color: 'var(--text-secondary)',
-              border: '1px solid var(--border)',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-primary)';
-              (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--border-accent)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-secondary)';
-              (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--border)';
-            }}
-          >
-            See how it works
-          </button>
+        <div className="hero-right mac-wrap">
+          <div className="mac-bokeh" />
+          <div className="macbook" aria-label="Alient running on a MacBook">
+            <div className="mb-lid">
+              <div className="mb-screen">
+                <div className="mb-camera" />
+                <div className="ui-titlebar">
+                  <span className="tl" />
+                  <span className="tl" />
+                  <span className="tl" />
+                  <span className="label">
+                    alient@mac · <span className="on">session live</span> · 09:41
+                  </span>
+                </div>
+                <div className="ui-body">
+                  <aside className="ui-sidebar">
+                    <div className="hd">Queue</div>
+                    <div className="row active">
+                      <span className="d" />
+                      JIRA-4812
+                    </div>
+                    <div className="row">
+                      <span className="d" />
+                      JIRA-4801
+                    </div>
+                    <div className="row">
+                      <span className="d" />
+                      JIRA-4794
+                    </div>
+                    <div className="hd" style={{ marginTop: 10 }}>
+                      Memory
+                    </div>
+                    {sidebarMemoryRows.map((kind) => (
+                      <div className="row" key={kind}>
+                        <span className="d" />
+                        {kind}
+                      </div>
+                    ))}
+                  </aside>
+                  <div className="ui-main">
+                    {terminalLines.map((line, i) => (
+                      <div className="term-line" style={{ animationDelay: `${line.delay}s` }} key={i}>
+                        {line.content}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="fake-cursor">
+                  <svg viewBox="0 0 24 24" fill="#E8E9EC" stroke="#0A0B0D" strokeWidth={1}>
+                    <path d="M3 2l7 18 2-8 8-2z" />
+                  </svg>
+                </div>
+                <div className="slack-toast">
+                  <div className="head">
+                    <div className="avatar">A</div>
+                    <div className="name">alient</div>
+                    <div className="time">now</div>
+                  </div>
+                  <div className="body">
+                    Opened <span className="pr">#1284</span> · fix: prorate taxes on split ship. CI green.
+                    Ready for review, @maria.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="mb-base" />
+          </div>
         </div>
-
-        {/* Social proof line */}
-        <p
-          className="mt-12 text-sm"
-          style={{ color: 'var(--text-muted)' }}
-        >
-          $500/month · No ramp time · Cancel anytime
-        </p>
       </div>
-
-      {/* Bottom fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32"
-        style={{
-          background: 'linear-gradient(to top, var(--bg-primary), transparent)',
-        }}
-      />
     </section>
   );
 }

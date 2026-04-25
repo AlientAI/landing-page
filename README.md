@@ -54,11 +54,12 @@ This creates the `contact_submissions` table:
 
 ```sql
 CREATE TABLE IF NOT EXISTS contact_submissions (
-  id         SERIAL PRIMARY KEY,
-  name       TEXT NOT NULL,
-  email      TEXT NOT NULL,
-  phone      TEXT NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  id           SERIAL PRIMARY KEY,
+  name         TEXT NOT NULL,
+  email        TEXT NOT NULL,
+  company      TEXT NOT NULL,
+  company_size TEXT NOT NULL,
+  created_at   TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 ```
 
@@ -79,11 +80,14 @@ Stores a demo request.
 **Request body:**
 ```json
 {
-  "name": "Alex Chen",
-  "email": "alex@company.com",
-  "phone": "+1 (555) 000-0000"
+  "name": "Jane Reyes",
+  "email": "jane@acme.com",
+  "company": "Acme, Inc.",
+  "size": "51-200"
 }
 ```
+
+`size` must be one of: `1-10`, `11-50`, `51-200`, `201-1000`, `1001-5000`, `5000+`.
 
 **Response:**
 ```json

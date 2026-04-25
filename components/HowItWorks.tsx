@@ -1,84 +1,106 @@
-const features = [
+import type { ReactNode } from 'react';
+
+type Card = {
+  step: string;
+  num: string;
+  icon: ReactNode;
+  title: ReactNode;
+  body: ReactNode;
+};
+
+const cards: Card[] = [
   {
-    icon: '🎫',
-    title: 'Picks up tickets automatically',
-    description:
-      'Alient monitors your Jira board, selects tickets within its scope, and starts working — no assignment needed. It asks your PM a question when something is ambiguous.',
+    step: 'Memory',
+    num: '01',
+    icon: (
+      <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+        <path d="M12 2a4 4 0 00-4 4v1a4 4 0 000 8v1a4 4 0 008 0v-1a4 4 0 000-8V6a4 4 0 00-4-4z" />
+        <path d="M9 9h6M9 13h6" />
+      </svg>
+    ),
+    title: 'Remembers everything.',
+    body: (
+      <>
+        Five-type persistent memory — procedural, episodic, semantic, working, declarative. Your
+        codebase, your conventions, every decision in every meeting. The work gets sharper every week.
+      </>
+    ),
   },
   {
-    icon: '💻',
-    title: 'Writes code and opens PRs',
-    description:
-      'It writes the code, runs the tests, opens the pull request, and tells the team it\'s done — exactly the way a developer does, using real GitHub.',
+    step: 'Meetings',
+    num: '02',
+    icon: (
+      <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+        <rect x={2} y={6} width={14} height={12} rx={1} />
+        <path d="M16 10l6-3v10l-6-3z" />
+        <circle cx={9} cy={12} r={2} />
+      </svg>
+    ),
+    title: 'Joins and talks in meetings.',
+    body: (
+      <>
+        Dials into Zoom, listens through a virtual mic,{' '}
+        <em style={{ color: 'var(--accent)', fontStyle: 'normal' }}>speaks when relevant</em>, asks
+        clarifying questions, and captures action items into the right tickets — then ships them after
+        the call.
+      </>
+    ),
   },
   {
-    icon: '🔗',
-    title: 'Works in every app your team uses',
-    description:
-      'Its own Slack. Its own email. Its own GitHub. Alient operates inside the tools you already use — no new workflows, no integration overhead.',
+    step: 'Tickets',
+    num: '03',
+    icon: (
+      <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+        <rect x={3} y={4} width={18} height={16} rx={1} />
+        <path d="M3 9h18M8 4v5M16 4v5" />
+      </svg>
+    ),
+    title: 'Picks up tickets.',
+    body: (
+      <>
+        Watches your Jira or Linear board. Selects work in scope. Asks the PM when something is
+        genuinely ambiguous, not when it&apos;s lazy.
+      </>
+    ),
   },
   {
-    icon: '🧠',
-    title: 'Gets smarter every week',
-    description:
-      'Alient learns your codebase, your PM\'s preferences, and how your team makes decisions. Questions per ticket go down. Output goes up. The longer it stays, the more it\'s worth.',
+    step: 'Code',
+    num: '04',
+    icon: (
+      <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+        <path d="M8 6l-5 6 5 6M16 6l5 6-5 6M14 4l-4 16" />
+      </svg>
+    ),
+    title: 'Writes and ships code.',
+    body: (
+      <>
+        Opens the codebase, writes the change, runs tests in an isolated worktree, opens the pull
+        request, replies to review comments.
+      </>
+    ),
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-32 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <p
-            className="text-sm font-medium uppercase tracking-widest mb-4"
-            style={{ color: 'var(--accent-bright)' }}
-          >
-            How It Works
-          </p>
-          <h2
-            className="text-4xl sm:text-5xl font-bold tracking-tight mb-6"
-            style={{ color: 'var(--text-primary)' }}
-          >
-            It&apos;s not a tool.
-            <br />
-            <span className="gradient-text">It&apos;s an AI hire.</span>
-          </h2>
-          <p
-            className="text-lg max-w-2xl mx-auto leading-relaxed"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            Alient doesn&apos;t generate code snippets. It joins your team, understands your systems,
-            and ships real work — end to end.
-          </p>
+    <section className="section">
+      <div className="container">
+        <div className="kicker" style={{ marginBottom: 18 }}>
+          <span className="num">02</span> How it works
         </div>
-
-        {/* Feature grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {features.map((feature) => (
-            <div key={feature.title} className="feature-card p-8">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-6"
-                style={{
-                  background: 'var(--accent-glow)',
-                  border: '1px solid var(--border-accent)',
-                }}
-              >
-                {feature.icon}
+        <h2 className="h1" style={{ maxWidth: '24ch' }}>
+          A real engineer&apos;s workflow, automated end to end.
+        </h2>
+        <div className="hiw" style={{ marginTop: 48 }}>
+          {cards.map((card) => (
+            <div className="hiw-card" key={card.num}>
+              <div className="step">
+                <span className="n">{card.num}</span> · {card.step}
               </div>
-              <h3
-                className="text-xl font-semibold mb-3"
-                style={{ color: 'var(--text-primary)' }}
-              >
-                {feature.title}
-              </h3>
-              <p
-                className="leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}
-              >
-                {feature.description}
-              </p>
+              <div className="ico">{card.icon}</div>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <span className="trace">see the trace</span>
             </div>
           ))}
         </div>

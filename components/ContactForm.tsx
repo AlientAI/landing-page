@@ -1,16 +1,54 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
+import { ArrowRight, CheckIcon } from './icons';
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
+
+const sizeOptions = [
+  { value: '1-10', label: '1 – 10' },
+  { value: '11-50', label: '11 – 50' },
+  { value: '51-200', label: '51 – 200' },
+  { value: '201-1000', label: '201 – 1,000' },
+  { value: '1001-5000', label: '1,001 – 5,000' },
+  { value: '5000+', label: '5,000+' },
+];
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function ContactForm() {
   const [state, setState] = useState<FormState>('idle');
   const [error, setError] = useState('');
-  const [form, setForm] = useState({ name: '', email: '', phone: '' });
+  const [form, setForm] = useState({ name: '', email: '', company: '', size: '' });
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const update = (key: keyof typeof form) => (value: string) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const isFieldInvalid = (key: keyof typeof form): boolean => {
+    if (!touched[key]) return false;
+    const value = form[key];
+    if (!value) return true;
+    if (key === 'email' && !emailRegex.test(value)) return true;
+    return false;
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setTouched({ name: true, email: true, company: true, size: true });
+
+    if (!form.name || !form.company || !form.size) {
+      setError('Please fill in every field.');
+      setState('error');
+      return;
+    }
+    if (!emailRegex.test(form.email)) {
+      setError('Please enter a valid work email.');
+      setState('error');
+      return;
+    }
+
     setState('loading');
     setError('');
 
@@ -20,7 +58,7 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         setError(data.error || 'Something went wrong. Please try again.');
         setState('error');
@@ -35,95 +73,106 @@ export default function ContactForm() {
 
   if (state === 'success') {
     return (
-      <div className="text-center py-16">
-        <div
-          className="w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-6"
-          style={{
-            background: 'var(--accent-glow)',
-            border: '1px solid var(--border-accent)',
-          }}
-        >
-          ✓
+      <div className="contact-form" aria-live="polite">
+        <div className="success">
+          <div className="check">
+            <CheckIcon width={20} height={20} />
+          </div>
+          <h4>Got it — talk soon.</h4>
+          <p>
+            We&apos;ll reach out from{' '}
+            <span className="mono" style={{ color: 'var(--accent)' }}>
+              founders@alient.ai
+            </span>{' '}
+            within one business day to schedule the call.
+          </p>
         </div>
-        <h3
-          className="text-2xl font-bold mb-3"
-          style={{ color: 'var(--text-primary)' }}
-        >
-          You&apos;re on the list.
-        </h3>
-        <p style={{ color: 'var(--text-secondary)' }}>
-          We&apos;ll be in touch shortly to schedule your demo.
-        </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      {[
-        { id: 'name', label: 'Full Name', type: 'text', placeholder: 'Alex Chen', key: 'name' as const },
-        { id: 'email', label: 'Work Email', type: 'email', placeholder: 'alex@company.com', key: 'email' as const },
-        { id: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+1 (555) 000-0000', key: 'phone' as const },
-      ].map((field) => (
-        <div key={field.id}>
-          <label
-            htmlFor={field.id}
-            className="block text-sm font-medium mb-2"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            {field.label}
-          </label>
+    <form className="contact-form" onSubmit={handleSubmit} noValidate>
+      <div className="grid">
+        <div className="field">
+          <label htmlFor="cf-name">Your name</label>
           <input
-            id={field.id}
-            type={field.type}
+            id="cf-name"
+            name="name"
+            type="text"
             required
-            value={form[field.key]}
-            onChange={(e) => setForm((prev) => ({ ...prev, [field.key]: e.target.value }))}
-            placeholder={field.placeholder}
-            className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
-            style={{
-              background: 'var(--bg-primary)',
-              border: '1px solid var(--border)',
-              color: 'var(--text-primary)',
-            }}
-            onFocus={(e) => {
-              e.currentTarget.style.borderColor = 'var(--accent)';
-              e.currentTarget.style.boxShadow = '0 0 0 3px var(--accent-glow)';
-            }}
-            onBlur={(e) => {
-              e.currentTarget.style.borderColor = 'var(--border)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
+            placeholder="Jane Reyes"
+            autoComplete="name"
+            value={form.name}
+            onChange={(e) => update('name')(e.target.value)}
+            onBlur={() => setTouched((t) => ({ ...t, name: true }))}
+            className={isFieldInvalid('name') ? 'invalid' : ''}
           />
         </div>
-      ))}
-
-      {state === 'error' && (
-        <p className="text-sm" style={{ color: '#f87171' }}>
-          {error}
-        </p>
-      )}
-
-      <button
-        type="submit"
-        disabled={state === 'loading'}
-        className="w-full py-4 rounded-xl font-semibold text-base transition-all duration-200 cursor-pointer"
-        style={{
-          background: state === 'loading' ? 'var(--text-muted)' : 'var(--accent)',
-          color: '#fff',
-          boxShadow: state === 'loading' ? 'none' : '0 0 30px rgba(99, 102, 241, 0.3)',
-          cursor: state === 'loading' ? 'not-allowed' : 'pointer',
-        }}
-      >
-        {state === 'loading' ? 'Sending…' : 'Request a Demo →'}
-      </button>
-
-      <p
-        className="text-xs text-center pt-1"
-        style={{ color: 'var(--text-muted)' }}
-      >
-        No spam. We&apos;ll reach out within 24 hours.
-      </p>
+        <div className="field">
+          <label htmlFor="cf-email">Work email</label>
+          <input
+            id="cf-email"
+            name="email"
+            type="email"
+            required
+            placeholder="jane@acme.com"
+            autoComplete="email"
+            value={form.email}
+            onChange={(e) => update('email')(e.target.value)}
+            onBlur={() => setTouched((t) => ({ ...t, email: true }))}
+            className={isFieldInvalid('email') ? 'invalid' : ''}
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="cf-company">Company</label>
+          <input
+            id="cf-company"
+            name="company"
+            type="text"
+            required
+            placeholder="Acme, Inc."
+            autoComplete="organization"
+            value={form.company}
+            onChange={(e) => update('company')(e.target.value)}
+            onBlur={() => setTouched((t) => ({ ...t, company: true }))}
+            className={isFieldInvalid('company') ? 'invalid' : ''}
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="cf-size">Company size</label>
+          <select
+            id="cf-size"
+            name="size"
+            required
+            value={form.size}
+            onChange={(e) => update('size')(e.target.value)}
+            onBlur={() => setTouched((t) => ({ ...t, size: true }))}
+            className={isFieldInvalid('size') ? 'invalid' : ''}
+          >
+            <option value="" disabled>
+              Select range…
+            </option>
+            {sizeOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div className="submit-row">
+        <p className="privacy">We&apos;ll reply within one business day. No drip campaigns, no shared lists.</p>
+        <button
+          className="btn btn--primary submit-btn"
+          type="submit"
+          disabled={state === 'loading'}
+        >
+          {state === 'loading' ? 'Sending…' : 'Request a demo'}
+          <ArrowRight />
+        </button>
+      </div>
+      {state === 'error' && error && <p className="form-error">{error}</p>}
     </form>
   );
 }
