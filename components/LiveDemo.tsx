@@ -13,7 +13,7 @@ export default function LiveDemo() {
               referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
-          <p className="demo-caption">Real session. Recorded April 15, 2026. No edits, no cuts.</p>
+          <p className="demo-caption">Recorded April 15, 2026.</p>
         </div>
       </div>
     </section>
