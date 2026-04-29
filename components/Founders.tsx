@@ -10,10 +10,11 @@ export default function Founders() {
             <h2 className="h1">We built the engineer, not the tool.</h2>
             <div className="letter">
               <p>
-                We spent the last decade shipping software at scale. Both of us watched the same
-                pattern: every team has more work than engineers, and every engineer has more meetings
-                than focus time. The tools we tried — copilots, assistants, agents — moved the
-                bottleneck around without removing it. The work still landed on a human.
+                Between us we&apos;ve shipped software at scale for two decades and grown up inside
+                it for almost one. We watched the same pattern from both ends: every team has more
+                work than engineers, and every engineer has more meetings than focus time. The
+                tools we tried — copilots, assistants, agents — moved the bottleneck around
+                without removing it. The work still landed on a human.
               </p>
               <p>
                 So we built the engineer instead of the tool. Alient is the colleague we wished we had:
@@ -31,29 +32,29 @@ export default function Founders() {
           <div className="bio-grid">
             <div>
               <div className="portrait">
-                <span className="mono-tag">CEO</span>
-                <span className="initials">A.K.</span>
+                <span className="mono-tag">CTO</span>
+                <span className="initials">Y.K.</span>
               </div>
               <div className="bio">
-                <h4>A. Koenig</h4>
-                <div className="role">Co-founder &amp; CEO</div>
+                <h4>Yurii Kulaksyz</h4>
+                <div className="role">Co-founder &amp; CTO · 8 y.o.</div>
                 <p>
-                  8+ years software engineering, 3 focused on AI/ML. Built Alient&apos;s agent
-                  architecture and computer-use layer.
+                  Built Alient&apos;s agent architecture and computer-use layer. Reads commit
+                  histories the way other kids read picture books.
                 </p>
               </div>
             </div>
             <div>
               <div className="portrait">
-                <span className="mono-tag">COO</span>
-                <span className="initials">M.R.</span>
+                <span className="mono-tag">CEO</span>
+                <span className="initials">T.S.</span>
               </div>
               <div className="bio">
-                <h4>M. Reyes</h4>
-                <div className="role">Co-founder &amp; COO</div>
+                <h4>Thirunavukkaresu Swaminathan <span style={{ opacity: 0.6 }}>(Swami)</span></h4>
+                <div className="role">Co-founder &amp; CEO</div>
                 <p>
-                  Principal engineering manager at Amazon. Twenty years shipping enterprise software
-                  and security systems at scale.
+                  Principal engineering manager. Two decades shipping enterprise software and
+                  security systems at scale.
                 </p>
               </div>
             </div>
