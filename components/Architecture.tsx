@@ -6,8 +6,13 @@ export default function Architecture() {
           <span className="num">04</span> Architecture
         </div>
         <h2 className="h1" style={{ maxWidth: '24ch' }}>
-          Seven layers. One engineer.
+          Seven layers. One agent.
         </h2>
+        <p className="sub" style={{ marginTop: 18, maxWidth: '58ch' }}>
+          The computer-use agent is the general executor — it operates any macOS app, no API
+          required. The coding and meeting agents are specialized executors beside it, sharing the
+          same memory, safety policy, and audit trail.
+        </p>
         <div className="arch-wrap">
           <svg
             className="arch-svg"
