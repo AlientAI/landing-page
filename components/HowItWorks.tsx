@@ -22,7 +22,7 @@ const cards: Card[] = [
     body: (
       <>
         Five-type persistent memory — procedural, episodic, semantic, working, declarative. Your
-        codebase, your conventions, every decision in every meeting. The work gets sharper every week.
+        business, your conventions, every decision in every meeting. The work gets sharper every week.
       </>
     ),
   },
@@ -41,41 +41,41 @@ const cards: Card[] = [
       <>
         Dials into Zoom, listens through a virtual mic,{' '}
         <em style={{ color: 'var(--accent)', fontStyle: 'normal' }}>speaks when relevant</em>, asks
-        clarifying questions, and captures action items into the right tickets — then ships them after
-        the call.
+        clarifying questions, and captures every action item — then delivers them after the call.
       </>
     ),
   },
   {
-    step: 'Tickets',
+    step: 'Tools',
     num: '03',
     icon: (
       <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-        <rect x={3} y={4} width={18} height={16} rx={1} />
-        <path d="M3 9h18M8 4v5M16 4v5" />
+        <rect x={2} y={4} width={20} height={13} rx={1} />
+        <path d="M8 21h8M12 17v4" />
+        <path d="M11 8l4 3-4 3v-6z" fill="currentColor" stroke="none" />
       </svg>
     ),
-    title: 'Picks up tickets.',
+    title: 'Operates any tool.',
     body: (
       <>
-        Watches your Jira or Linear board. Selects work in scope. Asks the PM when something is
-        genuinely ambiguous, not when it&apos;s lazy.
+        Works the apps you already use, including the ones with no API — portals, CRMs, finance
+        tools. It clicks, reads, and types like a person.
       </>
     ),
   },
   {
-    step: 'Code',
+    step: 'Delivery',
     num: '04',
     icon: (
       <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
         <path d="M8 6l-5 6 5 6M16 6l5 6-5 6M14 4l-4 16" />
       </svg>
     ),
-    title: 'Writes and ships code.',
+    title: 'Delivers finished work.',
     body: (
       <>
-        Opens the codebase, writes the change, runs tests in an isolated worktree, opens the pull
-        request, replies to review comments.
+        Picks up a task and returns it done. The proof: it opens the codebase, writes the change,
+        runs the tests, and ships the pull request — the hardest version of finishing a job.
       </>
     ),
   },
@@ -89,7 +89,7 @@ export default function HowItWorks() {
           <span className="num">02</span> How it works
         </div>
         <h2 className="h1" style={{ maxWidth: '24ch' }}>
-          A real engineer&apos;s workflow, automated end to end.
+          A real workday, automated end to end.
         </h2>
         <div className="hiw" style={{ marginTop: 48 }}>
           {cards.map((card) => (

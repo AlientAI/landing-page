@@ -18,13 +18,13 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: 'Alient — Hire the AI Teammate, not the tool',
+  title: 'Alient — the AI agent that does the work',
   description:
-    'Alient is the other 80%. An AI Teammate with its own Slack, its own email, a real seat in the meeting, and memory that compounds from day one. From the team behind Amazon’s foundational AI.',
+    'Not a chatbot that advises. An agent with compounding memory and true computer-use that operates your real tools and completes complex work end to end — proven by shipping production code autonomously. From the team behind Amazon’s foundational AI.',
   openGraph: {
-    title: 'Alient — Hire the AI Teammate, not the tool',
+    title: 'Alient — the AI agent that does the work',
     description:
-      'AI tools automate 20% of the job. Alient is the other 80% — meetings, memory, tickets, PRs. On-device by design.',
+      'An agent with compounding memory and true computer-use that operates your real tools and completes complex work end to end — proven by shipping production code autonomously. Private by design: your hardware, your VPC, or managed.',
     type: 'website',
   },
 };
@@ -38,10 +38,21 @@ export default function RootLayout({
     <html lang="en" className={`${jetbrainsMono.variable} ${sourceSerif.variable}`}>
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        {/* Async CSS pattern: General Sans must not block first paint
+            (display=swap shows the fallback font until it arrives). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap';document.head.appendChild(l);})();",
+          }}
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+          />
+        </noscript>
       </head>
       <body>{children}</body>
     </html>

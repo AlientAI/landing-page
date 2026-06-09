@@ -8,8 +8,8 @@ export default function Benchmark() {
           <span className="num">03</span> Proof
         </div>
         <h2 className="h1 bench-head">
-          We didn&apos;t ship a chatbot. We shipped the #1 base model on the world&apos;s hardest
-          computer-use benchmark.
+          We didn&apos;t ship a chatbot. We shipped the #1 agent on the world&apos;s hardest
+          computer-use benchmark — it operates software, it doesn&apos;t just talk about it.
         </h2>
 
         <div className="bench-stats">

@@ -2,10 +2,18 @@ import Link from 'next/link';
 import { ArrowRight } from './icons';
 
 const rows = [
-  { label: 'Where it runs', copilot: "Your developer's IDE", alient: 'A dedicated Mac in your office' },
-  { label: 'Identity', copilot: 'Acts as your developer', alient: 'Its own Slack, GitHub, email' },
-  { label: 'Data path', copilot: 'Your code → vendor cloud', alient: 'Stays on the device' },
-  { label: 'Output', copilot: 'Suggestions a human ships', alient: 'Pull requests, end to end' },
+  {
+    label: 'Where it runs',
+    copilot: 'A chat window in your browser',
+    alient: 'A dedicated machine — on-prem, VPC, or managed',
+  },
+  { label: 'Identity', copilot: 'Acts as you', alient: 'Its own Slack, email, logins' },
+  { label: 'Data path', copilot: 'Your data → vendor cloud', alient: 'Stays in your private deployment' },
+  {
+    label: 'Output',
+    copilot: 'Drafts a human finishes',
+    alient: 'Finished work, end to end — code, follow-ups, memos, updates',
+  },
 ];
 
 export default function Shift() {
@@ -17,15 +25,16 @@ export default function Shift() {
         </div>
         <div className="two-col">
           <div>
-            <h2 className="h1">You don&apos;t need another copilot. You need another engineer.</h2>
+            <h2 className="h1">You don&apos;t need another chatbot. You need an agent that does the work.</h2>
             <p className="body">
-              Every AI tool you&apos;ve tried generates code, suggestions, summaries — and leaves the work
-              on your team. Alient is the first one with its own laptop, its own login, and its own
-              accountability. It picks the ticket up, ships it, and tells the team it&apos;s done.
+              Every AI tool you&apos;ve tried generates drafts, suggestions, summaries — and leaves
+              the work on your team. Alient is the first one with its own machine, its own logins,
+              and its own accountability. It picks the task up, finishes it, and tells the team
+              it&apos;s done.
             </p>
             <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               <Link className="btn btn--primary" href="#demo">
-                Hire your first Alient
+                Put Alient to work
                 <ArrowRight />
               </Link>
             </div>
@@ -35,7 +44,7 @@ export default function Shift() {
               <thead>
                 <tr>
                   <th />
-                  <th>Copilots &amp; assistants</th>
+                  <th>Chatbots &amp; copilots</th>
                   <th style={{ color: 'var(--accent)' }}>Alient</th>
                 </tr>
               </thead>

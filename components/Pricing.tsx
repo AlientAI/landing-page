@@ -4,33 +4,27 @@ import { ArrowRight, MailIcon } from './icons';
 const rows = [
   {
     label: 'Fully-loaded cost',
-    junior: '$180,000 / yr',
-    senior: '$360,000 / yr',
+    hire: '$180,000 – $360,000 / yr',
     alient: '$12,000 / yr',
-    juniorNum: true,
-    seniorNum: true,
+    hireNum: true,
     alientNum: true,
   },
   {
-    label: 'Ramp to first PR',
-    junior: '30–90 days',
-    senior: '14–30 days',
+    label: 'Ramp to first finished task',
+    hire: '30–90 days',
     alient: 'Day one',
   },
   {
     label: 'Hours active',
-    junior: '40 / week',
-    senior: '50 / week',
+    hire: '40–50 / week',
     alient: '24 × 7',
-    juniorNum: true,
-    seniorNum: true,
+    hireNum: true,
     alientNum: true,
   },
-  { label: 'Severance', junior: 'Yes', senior: 'Yes', alient: 'None' },
+  { label: 'Severance', hire: 'Yes', alient: 'None' },
   {
     label: 'Memory of decisions',
-    junior: 'Until they leave',
-    senior: 'Until they leave',
+    hire: 'Until they leave',
     alient: 'Permanent',
   },
 ];
@@ -53,8 +47,7 @@ export default function Pricing() {
           <thead>
             <tr>
               <th />
-              <th>Junior engineer</th>
-              <th>Senior engineer</th>
+              <th>A full-time hire</th>
               <th className="alient">Alient</th>
             </tr>
           </thead>
@@ -62,8 +55,7 @@ export default function Pricing() {
             {rows.map((row) => (
               <tr key={row.label}>
                 <th>{row.label}</th>
-                <td className={row.juniorNum ? 'num' : undefined}>{row.junior}</td>
-                <td className={row.seniorNum ? 'num' : undefined}>{row.senior}</td>
+                <td className={row.hireNum ? 'num' : undefined}>{row.hire}</td>
                 <td className={`alient${row.alientNum ? ' num' : ''}`}>{row.alient}</td>
               </tr>
             ))}
