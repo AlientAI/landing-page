@@ -13,7 +13,10 @@ export default function LiveDemo() {
               referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
-          <p className="demo-caption">Recorded April 15, 2026.</p>
+          <p className="demo-caption">
+            Watch Alient pick up a real task and finish it end to end — one example of the agent
+            completing work. Recorded April 15, 2026.
+          </p>
         </div>
       </div>
     </section>

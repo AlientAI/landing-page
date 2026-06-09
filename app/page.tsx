@@ -13,6 +13,7 @@ import Nav from '@/components/Nav';
 import Pricing from '@/components/Pricing';
 import Security from '@/components/Security';
 import Shift from '@/components/Shift';
+import WhyAlient from '@/components/WhyAlient';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <LiveDemo />
         <Shift />
+        <WhyAlient />
         <HowItWorks />
         <Benchmark />
         <CtaStrip />
