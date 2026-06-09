@@ -6,13 +6,23 @@ type Item = { q: string; a: ReactNode };
 
 const items: Item[] = [
   {
+    q: 'Isn’t this just an AI chatbot or a Slack “AI coworker”?',
+    a: (
+      <>
+        Chat tools and coworker-bots live in a chat window and reach only what has an API — you
+        still drive them. Alient operates your actual tools, including the ones with no API, runs
+        on-device for privacy, and is accountable for the finished result. And it&apos;s the #1
+        computer-use agent on the OSWorld Benchmark — not a wrapper around someone else&apos;s chat.
+      </>
+    ),
+  },
+  {
     q: "Why won't OpenAI or Anthropic build this?",
     a: (
       <>
-        They sell horizontal capability. Alient is a vertical product — a hire, not a model — that
-        bundles computer use, memory, safety policy, and enterprise deployment into one SKU. The moat
-        is architectural and operational, not weights. If OpenAI or Anthropic ship it, we run on their
-        model.
+        They sell horizontal capability. Alient is a deployed, private, accountable agent — not a
+        model — that bundles computer use, memory, safety policy, and enterprise deployment into one
+        SKU, and it runs on their models. The moat is architectural and operational, not weights.
       </>
     ),
   },
@@ -30,18 +40,19 @@ const items: Item[] = [
     ),
   },
   {
-    q: 'Can it actually replace a junior engineer, or is this a productivity tool?',
+    q: 'What kind of work can it own?',
     a: (
       <>
-        It ships pull requests end to end for work in scope. For work out of scope — ambiguous product
-        decisions, cross-team negotiation, novel system design — it escalates. In practice, a single
-        Alient closes the equivalent of 0.8–1.2 junior-engineer tickets per week on our design
-        partners&apos; backlogs.
+        Bounded, repeatable knowledge and operations work with a clear definition of done — a change
+        shipped, a follow-up sent, a record updated, a report delivered. For ambiguous judgment —
+        product decisions, cross-team negotiation, novel design — it escalates to a human. On coding
+        work, the hardest case, a single Alient closes the equivalent of 0.8–1.2 junior-engineer
+        tickets per week on our design partners&apos; backlogs.
       </>
     ),
   },
   {
-    q: 'How does it handle codebases with strict security requirements?',
+    q: 'How does it handle work with strict security requirements?',
     a: (
       <>
         The device sits inside your perimeter, under your MDM, with your DLP. Nothing leaves the box
