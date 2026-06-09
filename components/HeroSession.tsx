@@ -116,7 +116,7 @@ const scenarios: Scenario[] = [
         content: (
           <>
             <span className="muted">→ opening</span> <span className="file">vendor portal</span>{' '}
-            <span className="muted">· no API — clicks, reads, types</span>
+            <span className="muted">· no API — clicks · types</span>
           </>
         ),
       },

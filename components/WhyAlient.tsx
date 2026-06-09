@@ -22,7 +22,7 @@ const categories: Category[] = [
     title: 'Chatbots & copilots',
     body: (
       <>
-        You operate them. They draft, suggest, and summarize — then hand the work back to you to
+        You operate them. They draft, suggest, and summarize — then the work comes back to you to
         finish and ship. Alient operates your tools itself and returns finished work.
       </>
     ),
