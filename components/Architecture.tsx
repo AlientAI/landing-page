@@ -9,9 +9,9 @@ export default function Architecture() {
           Seven layers. One agent.
         </h2>
         <p className="sub" style={{ marginTop: 18, maxWidth: '58ch' }}>
-          The computer-use agent is the general executor — it operates any macOS app, no API
-          required. The coding and meeting agents are specialized executors beside it, sharing the
-          same memory, safety policy, and audit trail.
+          The computer-use agent is the general executor — it operates any app on its machine, no
+          API required. The coding and meeting agents are specialized executors beside it, sharing
+          the same memory, safety policy, and audit trail.
         </p>
         <div className="arch-wrap">
           <svg
@@ -69,7 +69,7 @@ export default function Architecture() {
                 click · type · read screen
               </text>
               <text className="n-sub" x={60} y={242}>
-                any macOS app
+                any desktop app
               </text>
 
               <rect className="box" x={280} y={166} width={220} height={110} rx={2} />

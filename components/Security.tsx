@@ -10,11 +10,12 @@ const cards: Card[] = [
         <path d="M8 21h8M12 17v4" />
       </svg>
     ),
-    title: 'Runs on a Mac in your office.',
+    title: 'Runs where you choose.',
     body: (
       <>
-        You provision the Mac. We help you configure it. Sits inside your perimeter, under your MDM. No
-        cloud agent, no shared tenant.
+        Your own hardware, your VPC, or a dedicated managed instance we run for you. Always
+        single-tenant — never a shared cloud. Under your MDM and DLP when it&apos;s inside your
+        perimeter.
       </>
     ),
   },
@@ -28,8 +29,8 @@ const cards: Card[] = [
     title: 'Zero data egress.',
     body: (
       <>
-        Reasoning, memory, screen capture, and audio all stay on the device. Only the LLM API call
-        leaves — and even that can be self-hosted.
+        Reasoning, memory, screen capture, and audio all stay on the agent&apos;s machine. Only the
+        LLM API call leaves — and even that can be self-hosted.
       </>
     ),
   },
@@ -61,7 +62,7 @@ export default function Security() {
           <span className="num">05</span> Security
         </div>
         <h2 className="h1" style={{ maxWidth: '20ch' }}>
-          On-device by design. CISO-ready by construction.
+          Private by design. CISO-ready by construction.
         </h2>
         <div className="sec-grid">
           {cards.map((card, i) => (

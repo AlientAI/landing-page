@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Alient — the AI agent that does the work',
     description:
-      'An agent with compounding memory and true computer-use that operates your real tools and completes complex work end to end — proven by shipping production code autonomously. On-device by design.',
+      'An agent with compounding memory and true computer-use that operates your real tools and completes complex work end to end — proven by shipping production code autonomously. Private by design: your hardware, your VPC, or managed.',
     type: 'website',
   },
 };

@@ -52,8 +52,8 @@ export default function Hero() {
               <div className="lbl">Claude Code · Terminal Benchmark</div>
             </div>
             <div className="proof-cell">
-              <div className="num">On-device</div>
-              <div className="lbl">Zero data egress</div>
+              <div className="num">Zero egress</div>
+              <div className="lbl">On-prem · VPC · managed</div>
             </div>
           </div>
         </div>

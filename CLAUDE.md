@@ -29,7 +29,10 @@ competitor's tagline ("Not a tool. A hire.").
 1. **#1 on OSWorld computer-use** — 72.1%, +9.2 pts over previous SOTA.
 2. **Operates any app** — computer-use reaches tools with no API.
 3. **5-type compounding memory** — procedural, episodic, semantic, working, declarative.
-4. **On-device / zero-egress privacy** — runs on a machine inside your perimeter.
+4. **Private deployment / zero egress** — your hardware, your VPC, or a
+   dedicated managed instance; always single-tenant, never a shared cloud.
+   A Mac in your office is ONE deployment option — never present it as THE
+   deployment story.
 5. **Accountable autonomy** — risk-graded actions, human escalation, audit trail, rollback.
 6. **Architectural moat** — "the same model in a different system gets a different answer."
 
@@ -38,8 +41,8 @@ competitor's tagline ("Not a tool. A hire.").
 1. **Chatbots & copilots** — you operate them; they draft; you ship.
    → Alient operates your tools and returns finished work.
 2. **Cloud "AI coworker" bots** — chat-native, API-only, shared cloud.
-   → Alient reaches any app via computer-use, runs on-device, and is
-   accountable for the finished result.
+   → Alient reaches any app via computer-use, runs single-tenant on a
+   machine dedicated to you, and is accountable for the finished result.
 3. **Frontier model labs** — sell horizontal capability.
    → Alient is the deployed, private, accountable agent that runs on top of
    their models and bundles computer-use + memory + safety + deployment.

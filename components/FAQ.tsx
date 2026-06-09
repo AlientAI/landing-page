@@ -11,8 +11,9 @@ const items: Item[] = [
       <>
         Chat tools and coworker-bots live in a chat window and reach only what has an API — you
         still drive them. Alient operates your actual tools, including the ones with no API, runs
-        on-device for privacy, and is accountable for the finished result. And it&apos;s the #1
-        computer-use agent on the OSWorld Benchmark — not a wrapper around someone else&apos;s chat.
+        in a private single-tenant deployment, and is accountable for the finished result. And
+        it&apos;s the #1 computer-use agent on the OSWorld Benchmark — not a wrapper around someone
+        else&apos;s chat.
       </>
     ),
   },
@@ -55,9 +56,9 @@ const items: Item[] = [
     q: 'How does it handle work with strict security requirements?',
     a: (
       <>
-        The device sits inside your perimeter, under your MDM, with your DLP. Nothing leaves the box
-        except the LLM API call, which can be pointed at an on-device model on Apple Silicon or a
-        private-deployment endpoint you control.
+        Deploy it inside your perimeter — on your own hardware under your MDM and DLP, or in your
+        VPC. Nothing leaves the deployment except the LLM API call, which can be pointed at an
+        on-device model, a VPC-private endpoint, or a self-hosted model you control.
       </>
     ),
   },
@@ -65,7 +66,7 @@ const items: Item[] = [
     q: 'What languages and frameworks does it support?',
     a: (
       <>
-        Anything your Mac can run. We&apos;ve deployed into TypeScript, Python, Go, Rust, Swift,
+        Anything its machine can run. We&apos;ve deployed into TypeScript, Python, Go, Rust, Swift,
         Kotlin, and Ruby stacks. The coding agent is framework-agnostic; the computer-use layer means
         it works with your existing IDE, terminal, and review tools — not a replacement for them.
       </>
@@ -75,8 +76,9 @@ const items: Item[] = [
     q: 'Does it require any infrastructure on our side?',
     a: (
       <>
-        One Mac you provision yourself, on your network, under your MDM. We send you a setup script
-        and a checklist; your IT team enrolls the device. Day-one setup is under an hour.
+        Only if you want it to. Run it on a machine you provision — a Mac on your network, under
+        your MDM — or in your own VPC, or have us run a dedicated managed instance for you. Either
+        way we send a setup script and a checklist; day-one setup is under an hour.
       </>
     ),
   },

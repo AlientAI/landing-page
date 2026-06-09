@@ -18,9 +18,8 @@ export default function Founders() {
               </p>
               <p>
                 So we built the agent instead of the tool. Alient is the colleague we wished we
-                had: a Mac on the desk, picking up the work that used to land on a human — joining
-                the meeting, asking smart questions, returning it finished. It is not
-                infrastructure. It is a hire.
+                had: it picks up the work that used to land on a human — joins the meeting, asks
+                smart questions, returns it finished. It is not infrastructure. It is a hire.
               </p>
               <p>
                 If that resonates, we&apos;d like to show you a real session — not a slide deck. Thirty

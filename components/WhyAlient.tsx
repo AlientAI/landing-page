@@ -4,7 +4,7 @@ const pillars = [
   '#1 on OSWorld computer-use',
   'Operates any app — no API needed',
   '5-type compounding memory',
-  'On-device · zero egress',
+  'Private deployment · zero egress',
   'Accountable autonomy — audit & rollback',
   'Architectural moat — not a wrapper',
 ];
@@ -39,7 +39,8 @@ const categories: Category[] = [
       <>
         They live in a chat window, reach only what has an API, and run in a shared cloud. Alient
         reaches <em style={{ color: 'var(--accent)', fontStyle: 'normal' }}>any</em> app through
-        computer-use, runs on a machine inside your perimeter, and is accountable for the result.
+        computer-use, runs single-tenant on a machine dedicated to you, and is accountable for the
+        result.
       </>
     ),
   },

@@ -2,9 +2,13 @@ import Link from 'next/link';
 import { ArrowRight } from './icons';
 
 const rows = [
-  { label: 'Where it runs', copilot: 'A chat window in your browser', alient: 'A dedicated Mac in your office' },
+  {
+    label: 'Where it runs',
+    copilot: 'A chat window in your browser',
+    alient: 'A dedicated machine — on-prem, VPC, or managed',
+  },
   { label: 'Identity', copilot: 'Acts as you', alient: 'Its own Slack, email, logins' },
-  { label: 'Data path', copilot: 'Your data → vendor cloud', alient: 'Stays on the device' },
+  { label: 'Data path', copilot: 'Your data → vendor cloud', alient: 'Stays in your private deployment' },
   {
     label: 'Output',
     copilot: 'Drafts a human finishes',
