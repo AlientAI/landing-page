@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="foot-grid">
           <div className="foot-brand">
             <div className="wordmark">Alient</div>
-            <p>The AI software engineer that runs on a real Mac. Made in Austin, TX.</p>
+            <p>An AI agent that runs your work — on a machine you control. Made in Austin, TX.</p>
           </div>
           <nav className="foot-links" aria-label="Footer">
             <Link href="#product">Overview</Link>
