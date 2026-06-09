@@ -78,7 +78,7 @@ export default function ContactForm() {
           <div className="check">
             <CheckIcon width={20} height={20} />
           </div>
-          <h4>Got it — talk soon.</h4>
+          <h3>Got it — talk soon.</h3>
           <p>
             We&apos;ll reach out from{' '}
             <span className="mono" style={{ color: 'var(--accent)' }}>

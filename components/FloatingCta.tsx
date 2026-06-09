@@ -40,6 +40,7 @@ export default function FloatingCta() {
       href="#demo"
       aria-label="Request a demo"
       aria-hidden={!visible}
+      tabIndex={visible ? 0 : -1}
     >
       <span className="dot" />
       <span>Request a demo</span>

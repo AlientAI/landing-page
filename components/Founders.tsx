@@ -37,7 +37,7 @@ export default function Founders() {
                 <span className="initials">Y.K.</span>
               </div>
               <div className="bio">
-                <h4>Yurii Kulaksyz</h4>
+                <h3>Yurii Kulaksyz</h3>
                 <div className="role">Co-founder &amp; CTO · 8 yrs experience</div>
                 <p>
                   Built Alient&apos;s agent architecture and computer-use layer. Reads commit
@@ -51,7 +51,7 @@ export default function Founders() {
                 <span className="initials">T.S.</span>
               </div>
               <div className="bio">
-                <h4>Thirunavukkaresu Swaminathan <span style={{ opacity: 0.6 }}>(Swami)</span></h4>
+                <h3>Thirunavukkaresu Swaminathan <span style={{ opacity: 0.6 }}>(Swami)</span></h3>
                 <div className="role">Co-founder &amp; CEO</div>
                 <p>
                   Principal engineering manager. Two decades shipping enterprise software and

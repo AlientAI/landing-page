@@ -38,10 +38,21 @@ export default function RootLayout({
     <html lang="en" className={`${jetbrainsMono.variable} ${sourceSerif.variable}`}>
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        {/* Async CSS pattern: General Sans must not block first paint
+            (display=swap shows the fallback font until it arrives). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap';document.head.appendChild(l);})();",
+          }}
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+          />
+        </noscript>
       </head>
       <body>{children}</body>
     </html>
